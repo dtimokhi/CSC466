@@ -1,0 +1,16 @@
+Names in team: Dmitriy Timokhin, Charlie Liou, Hanson Egbert
+
+Market Basket Input Type:
+Sparse Vector Format
+
+Program Parameters:
+
+findRules:
+T - List of List - List of market baskets
+minSup - float - Minimum frequency of an item set to become frequent
+minConf - float - Minimum confience of an association rule to become a rule
+goodsDictTmp - dictionary - Dictionary to represent the relationship of id to item name
+bakery - boolean - Parameter if true use dictionary to change ids to item names
+
+Instructions to run:
+
