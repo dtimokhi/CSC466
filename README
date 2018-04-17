@@ -3,14 +3,30 @@ Names in team: Dmitriy Timokhin, Charlie Liou, Hanson Egbert
 Market Basket Input Type:
 Sparse Vector Format
 
-Program Parameters:
-
-findRules:
-T - List of List - List of market baskets
-minSup - float - Minimum frequency of an item set to become frequent
-minConf - float - Minimum confience of an association rule to become a rule
-goodsDictTmp - dictionary - Dictionary to represent the relationship of id to item name
-bakery - boolean - Parameter if true use dictionary to change ids to item names
+Program Files:
+lab1Run.py - Used to run everything. Has methods to specify which data to use.
+lab1Support.py - Contains all methods used. Is called by lab1Run.py.
 
 Instructions to run:
+To run off command line use:
+python3 lab1Run.py [data] [minSup] [minConf] [id to name file] [data type]
+
+data - Which market basket data file to use
+     - 1000-out1.csv, 5000-out1.csv, 20000-out1.csv, 75000-out1.csv
+     - bingoBaskets.csv
+     - factor_baskets_sparse.csv
+
+minSup - The minimum support in order to become a frequent set
+
+minConf - The minimum confidence in order to become an association rule
+
+id to name file - The data used to convert ids to item name
+                - goods.csv
+                - authorlist.psv
+                - factors.csv
+
+data type - Specifies which data we are working with
+          - Bakery
+          - Bingo
+          - Otherwise Transcription 
 
