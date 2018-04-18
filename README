@@ -25,8 +25,8 @@ id to name file - The data used to convert ids to item name
                 - authorlist.psv
                 - factors.csv
 
-data type - Specifies which data we are working with
-          - Bakery
-          - Bingo
-          - Otherwise Transcription 
+data type - Specifies which data we are working with (Case sensitive)
+          - 'Bakery'
+          - 'Bingo'
+          - Otherwise 'Transcription' 
 
