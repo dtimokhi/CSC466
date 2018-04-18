@@ -183,10 +183,10 @@ def addNames(output, goods):
 
 def printCorrectly(output):
     for i, rule in enumerate(output):
-        print("Rule: ", str(i), '   ', ','.join(rule[0]), " --> ", 
-                rule[1][0]) 
-        print("              Support: ", str(rule[3]))
-        print("              Confidence: ", str(rule[2]))
+        print("Rule:", str(i),"Support/Confidence: ",
+            "(" + str(round(rule[3], 4)) + "," + str(round(rule[2], 4)) + ")", '+'.join(rule[0]), "-->", rule[1][0]) 
+        #print("              Support: ", str(round(rule[3], 4)))
+        #print("              Confidence: ", str(round(rule[2], 4)))
         
 
 
@@ -198,7 +198,7 @@ def findRules(T, minSup, minConf, goodsDictTmp, needsNames = True):
     if(needsNames == True):
         aprioriNames = addNamesFreq(getSupportFreq(T, aprioriOutput), goodsDictTmp)
         for i, itemSet in enumerate(aprioriNames):
-            print('Set # ', i+1, " ", itemSet)
+            print('Set # ', i+1, " ", " && ".join(itemSet[0]), "Support:", round(itemSet[1], 3))
     genRulesOutput = genRules(T, aprioriOutput, minConf)
     if(needsNames == True):
         genRulesOutput = addNames(genRulesOutput, goodsDictTmp)
@@ -213,15 +213,15 @@ def findRulesGene(T, minSup, minConf, goodsDictTmp, needsNames = True):
     aprioriOutput = apriori(T, minSup)
     aprioriNames = None
     if(needsNames == True):
-        aprioriNames = addNamesFreq1(getSupportFreq(T, aprioriOutput), goodsDictTmp)
+        aprioriNames = addNamesFreq(getSupportFreq(T, aprioriOutput), goodsDictTmp)
+        aprioriNames = filter(lambda x: len(x[0]) >= 2, aprioriNames)
         for i, itemSet in enumerate(aprioriNames):
-            print('Set # ', i+1, " ", itemSet)
+            print('Set # ', i+1, " ", itemSet[0], "    Support: ", itemSet[1])
     genRulesOutput = genRules(T, aprioriOutput, minConf)
     if(needsNames == True):
-        genRulesOutput = addNames1(genRulesOutput, goodsDictTmp)
+        genRulesOutput = addNames(genRulesOutput, goodsDictTmp)
     print("**********************************************")
-    printCorrectly1(genRulesOutput)
-    #return genRulesOutput
+    #printCorrectly(genRulesOutput)
 
 
 # In[94]:
