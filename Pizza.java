@@ -5,6 +5,6 @@ public class Pizza{
 	}
 	public int getCount() {
 		t++;
-		return t;
+		return --t;
 	}
 }
